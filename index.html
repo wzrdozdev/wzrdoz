@@ -4,7 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wzrdoz — Web, App & Tech Solutions</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="shortcut icon" href="/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script src="https://web3forms.com/client/script.js" async defer></script>
   <style>
     :root {
       --bg: #08080f;
@@ -703,6 +715,7 @@
           <label for="message">Tell me more</label>
           <textarea id="message" name="message" placeholder="Describe your project or what you need help with..."></textarea>
         </div>
+        <div class="h-captcha" data-captcha="true"></div>
         <button type="submit" class="btn-submit">Send Message ✦</button>
       </form>
     </div>
@@ -737,4 +750,12 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelector
+    document.querySelectorAll('section').forEach(s => {
+      s.style.opacity = '0';
+      s.style.transform = 'translateY(30px)';
+      s.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      observer.observe(s);
+    });
+  </script>
+</body>
+</html>
