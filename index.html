@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wzrdoz — Web, App & Tech Solutions</title>
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <meta name="description"
+    content="Wzrdoz — Custom web apps, mobile apps, and tech solutions by Brent Osbun. Based in Ohio. Making tech feel like magic.">
+  <meta property="og:title" content="Wzrdoz — Web, App & Tech Solutions">
+  <meta property="og:description"
+    content="Custom web apps, mobile apps, and tech solutions. Making tech feel like magic.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wzrdoz.dev">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Wzrdoz — Web, App & Tech Solutions">
+  <meta name="twitter:description"
+    content="Custom web apps, mobile apps, and tech solutions. Making tech feel like magic.">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
+  <link rel="manifest" href="/favicon/site.webmanifest">
+  <link rel="shortcut icon" href="/favicon/favicon.ico">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap"
+    rel="stylesheet" />
   <script src="https://web3forms.com/client/script.js" async defer></script>
   <style>
     :root {
@@ -22,12 +35,18 @@
       --white: #f0eaff;
       --grey: #6b5f8a;
       --card: #10101e;
-      --border: rgba(168,85,247,0.15);
+      --border: rgba(168, 85, 247, 0.15);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--bg);
@@ -51,13 +70,15 @@
     /* NAV */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       padding: 1.5rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(to bottom, rgba(8,8,15,0.95), transparent);
+      background: linear-gradient(to bottom, rgba(8, 8, 15, 0.95), transparent);
       backdrop-filter: blur(8px);
     }
 
@@ -70,7 +91,9 @@
       text-decoration: none;
     }
 
-    .nav-logo span { color: var(--purple); }
+    .nav-logo span {
+      color: var(--purple);
+    }
 
     .nav-links {
       display: flex;
@@ -87,7 +110,9 @@
       transition: color 0.3s;
     }
 
-    .nav-links a:hover { color: var(--purple); }
+    .nav-links a:hover {
+      color: var(--purple);
+    }
 
     /* HERO */
     #hero {
@@ -111,7 +136,7 @@
       transform: translate(-50%, -50%);
       width: 600px;
       height: 600px;
-      background: radial-gradient(circle, rgba(124,58,237,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -125,19 +150,33 @@
 
     .particle {
       position: absolute;
-      width: 2px;
-      height: 2px;
+      width: 3px;
+      height: 3px;
       background: var(--purple);
       border-radius: 50%;
       animation: float linear infinite;
       opacity: 0;
+      box-shadow: 0 0 6px 2px rgba(168, 85, 247, 0.6);
     }
 
     @keyframes float {
-      0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-      10% { opacity: 0.6; }
-      90% { opacity: 0.3; }
-      100% { transform: translateY(-10vh) translateX(30px); opacity: 0; }
+      0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 0.7;
+      }
+
+      100% {
+        transform: translateY(-10vh) translateX(30px);
+        opacity: 0;
+      }
     }
 
     .hero-eyebrow {
@@ -156,7 +195,7 @@
       margin-bottom: 1.5rem;
       opacity: 0;
       animation: fadeUp 0.8s ease forwards 0.3s;
-      filter: drop-shadow(0 0 20px rgba(168,85,247,0.5));
+      filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5));
     }
 
     .hero-title {
@@ -170,7 +209,10 @@
       animation: fadeUp 0.8s ease forwards 0.4s;
     }
 
-    .hero-title .oz { color: var(--purple); text-shadow: 0 0 40px rgba(168,85,247,0.4); }
+    .hero-title .oz {
+      color: var(--purple);
+      text-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
+    }
 
     .hero-subtitle {
       font-size: clamp(0.8rem, 2vw, 1rem);
@@ -184,7 +226,7 @@
 
     .hero-tagline {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: rgba(240,234,255,0.6);
+      color: rgba(240, 234, 255, 0.6);
       max-width: 480px;
       line-height: 1.8;
       margin-bottom: 3rem;
@@ -211,11 +253,11 @@
       text-transform: uppercase;
       border-radius: 2px;
       transition: all 0.3s;
-      box-shadow: 0 0 30px rgba(168,85,247,0.2);
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
     }
 
     .btn-primary:hover {
-      box-shadow: 0 0 40px rgba(168,85,247,0.4);
+      box-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
       transform: translateY(-2px);
     }
 
@@ -257,13 +299,27 @@
     }
 
     @keyframes scrollPulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 1; }
+
+      0%,
+      100% {
+        opacity: 0.3;
+      }
+
+      50% {
+        opacity: 1;
+      }
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* SECTION SHARED */
@@ -332,7 +388,9 @@
     .service-card::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 2px;
       background: linear-gradient(to right, var(--purple-dark), var(--purple));
       transform: scaleX(0);
@@ -340,8 +398,13 @@
       transform-origin: left;
     }
 
-    .service-card:hover::before { transform: scaleX(1); }
-    .service-card:hover { background: #13132a; }
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-card:hover {
+      background: #13132a;
+    }
 
     .service-icon {
       font-size: 1.8rem;
@@ -386,7 +449,7 @@
     .project-card:hover {
       border-color: var(--purple-dim);
       transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
     }
 
     .project-placeholder {
@@ -404,7 +467,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(124,58,237,0.08), transparent);
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), transparent);
     }
 
     .project-info {
@@ -443,6 +506,49 @@
       border-radius: 2px;
     }
 
+    .project-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #34d399;
+      border: 1px solid rgba(52,211,153,0.35);
+      background: rgba(52,211,153,0.06);
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+    }
+
+    .project-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .project-link {
+      display: inline-block;
+      margin-top: 1.2rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--purple);
+      text-decoration: none;
+      transition: color 0.3s, gap 0.3s;
+    }
+    .project-link:hover { color: var(--white); }
+
+    .project-tech-tag {
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey);
+      border: 1px solid rgba(168,85,247,0.12);
+      background: rgba(168,85,247,0.05);
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+
     /* CONTACT */
     #contact {
       border-top: 1px solid var(--border);
@@ -478,13 +584,32 @@
       color: var(--grey);
     }
 
-    .contact-detail span:first-child { color: var(--purple); font-size: 1rem; }
-    .contact-detail a { color: var(--grey); text-decoration: none; transition: color 0.3s; }
-    .contact-detail a:hover { color: var(--purple); }
+    .contact-detail span:first-child {
+      color: var(--purple);
+      font-size: 1rem;
+    }
 
-    form { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-detail a {
+      color: var(--grey);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
 
-    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .contact-detail a:hover {
+      color: var(--purple);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
 
     label {
       font-size: 0.65rem;
@@ -493,7 +618,8 @@
       color: var(--grey);
     }
 
-    input, textarea {
+    input,
+    textarea {
       background: var(--card);
       border: 1px solid var(--border);
       color: var(--white);
@@ -506,10 +632,21 @@
       outline: none;
     }
 
-    input:focus, textarea:focus { border-color: var(--purple); }
-    textarea { resize: vertical; min-height: 130px; }
+    input:focus,
+    textarea:focus {
+      border-color: var(--purple);
+    }
 
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
 
     .btn-submit {
       padding: 1rem 2rem;
@@ -523,11 +660,11 @@
       cursor: pointer;
       border-radius: 2px;
       transition: all 0.3s;
-      box-shadow: 0 0 30px rgba(168,85,247,0.15);
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
     }
 
     .btn-submit:hover {
-      box-shadow: 0 0 40px rgba(168,85,247,0.35);
+      box-shadow: 0 0 40px rgba(168, 85, 247, 0.35);
       transform: translateY(-2px);
     }
 
@@ -549,7 +686,9 @@
       color: var(--grey);
     }
 
-    .footer-logo span { color: var(--purple); }
+    .footer-logo span {
+      color: var(--purple);
+    }
 
     .footer-copy {
       font-size: 0.75rem;
@@ -565,7 +704,10 @@
       cursor: pointer;
       padding: 4px;
       z-index: 200;
+      background: none;
+      border: none;
     }
+
     .hamburger span {
       display: block;
       width: 24px;
@@ -574,22 +716,38 @@
       border-radius: 2px;
       transition: all 0.3s ease;
     }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
 
     .mobile-menu {
       display: none;
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(8,8,15,0.98);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(8, 8, 15, 0.98);
       z-index: 150;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: 2.5rem;
     }
-    .mobile-menu.open { display: flex; }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
     .mobile-menu a {
       color: var(--white);
       text-decoration: none;
@@ -599,21 +757,64 @@
       letter-spacing: 0.1em;
       transition: color 0.3s;
     }
-    .mobile-menu a:hover { color: var(--purple); }
+
+    .mobile-menu a:hover {
+      color: var(--purple);
+    }
+
+    /* SCROLL FADE */
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
-      nav { padding: 1.2rem 1.5rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-      section { padding: 4rem 1.5rem; }
-      .contact-wrapper { grid-template-columns: 1fr; gap: 2.5rem; }
-      .form-row { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
-      #about > div:last-of-type { grid-template-columns: 1fr !important; }
+      nav {
+        padding: 1.2rem 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+
+      #about>div:last-of-type {
+        grid-template-columns: 1fr !important;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- MOBILE MENU -->
@@ -633,9 +834,9 @@
       <li><a href="#portfolio">Work</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <div class="hamburger" id="hamburger" onclick="toggleMobile()">
+    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
-    </div>
+    </button>
   </nav>
 
   <!-- HERO -->
@@ -648,22 +849,23 @@
     <svg class="hero-hat" viewBox="0 0 80 90" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="hg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#a855f7"/>
-          <stop offset="100%" style="stop-color:#7c3aed"/>
+          <stop offset="0%" style="stop-color:#a855f7" />
+          <stop offset="100%" style="stop-color:#7c3aed" />
         </linearGradient>
       </defs>
-      <ellipse cx="40" cy="72" rx="36" ry="8" fill="#1e1e3a" stroke="#a855f7" stroke-width="1"/>
-      <polygon points="40,5 18,72 62,72" fill="url(#hg)"/>
-      <rect x="19" y="63" width="42" height="7" rx="1" fill="#0e0e1a" opacity="0.7"/>
-      <circle cx="40" cy="5" r="3" fill="#f0eaff" opacity="0.9"/>
-      <circle cx="55" cy="28" r="1.5" fill="#e2c4ff" opacity="0.7"/>
-      <circle cx="28" cy="40" r="1" fill="#c084fc" opacity="0.6"/>
-      <circle cx="52" cy="48" r="1.2" fill="#e2c4ff" opacity="0.5"/>
+      <ellipse cx="40" cy="72" rx="36" ry="8" fill="#1e1e3a" stroke="#a855f7" stroke-width="1" />
+      <polygon points="40,5 18,72 62,72" fill="url(#hg)" />
+      <rect x="19" y="63" width="42" height="7" rx="1" fill="#0e0e1a" opacity="0.7" />
+      <circle cx="40" cy="5" r="3" fill="#f0eaff" opacity="0.9" />
+      <circle cx="55" cy="28" r="1.5" fill="#e2c4ff" opacity="0.7" />
+      <circle cx="28" cy="40" r="1" fill="#c084fc" opacity="0.6" />
+      <circle cx="52" cy="48" r="1.2" fill="#e2c4ff" opacity="0.5" />
     </svg>
 
     <h1 class="hero-title">WZRD<span class="oz">OZ</span></h1>
     <p class="hero-subtitle">Web · App · Tech Solutions</p>
-    <p class="hero-tagline">Making tech feel like magic. From custom web apps to setting up your digital world — I build things that just work.</p>
+    <p class="hero-tagline">Making tech feel like magic. From custom web apps to setting up your digital world — I build
+      things that just work.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn-primary">Start a Project</a>
       <a href="#services" class="btn-secondary">See Services</a>
@@ -681,26 +883,36 @@
     <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
       <div>
         <p style="font-size:1rem; line-height:1.9; color:rgba(240,234,255,0.75); margin-bottom:1.2rem;">
-          Hey, I'm <strong style="color:#f0eaff;">Brent Osbun</strong> — a full-time Systems Administrator based in Ohio with a serious passion for all things tech.
+          Hey, I'm <strong style="color:#f0eaff;">Brent Osbun</strong> — a full-time Systems Administrator based in Ohio
+          with a serious passion for all things tech.
         </p>
         <p style="font-size:1rem; line-height:1.9; color:rgba(240,234,255,0.75); margin-bottom:1.2rem;">
-          By day I keep systems running, but in my downtime you'll find me building web apps, tinkering with new technologies, and exploring whatever coding rabbit hole I've fallen into that week. Over the last year I've been diving deep into development and turning that passion into real projects.
+          By day I keep systems running, but in my downtime you'll find me building web apps, tinkering with new
+          technologies, and exploring whatever coding rabbit hole I've fallen into that week. Over the last year I've
+          been diving deep into development and turning that passion into real projects.
         </p>
         <p style="font-size:1rem; line-height:1.9; color:rgba(240,234,255,0.75);">
-          Wzrdoz was born from that love of creating — a place where I can help others bring their ideas to life through clean, modern web and app development, and hands-on tech solutions.
+          Wzrdoz was born from that love of creating — a place where I can help others bring their ideas to life through
+          clean, modern web and app development, and hands-on tech solutions.
         </p>
       </div>
       <div style="display:flex; flex-direction:column; gap:1rem;">
         <div style="background:#10101e; border:1px solid rgba(168,85,247,0.15); padding:1.5rem; border-radius:4px;">
-          <p style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:#a855f7; margin-bottom:0.5rem;">Role</p>
+          <p
+            style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:#a855f7; margin-bottom:0.5rem;">
+            Role</p>
           <p style="font-size:0.95rem; color:#f0eaff;">Systems Administrator & Developer</p>
         </div>
         <div style="background:#10101e; border:1px solid rgba(168,85,247,0.15); padding:1.5rem; border-radius:4px;">
-          <p style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:#a855f7; margin-bottom:0.5rem;">Location</p>
+          <p
+            style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:#a855f7; margin-bottom:0.5rem;">
+            Location</p>
           <p style="font-size:0.95rem; color:#f0eaff;">Ohio, USA</p>
         </div>
         <div style="background:#10101e; border:1px solid rgba(168,85,247,0.15); padding:1.5rem; border-radius:4px;">
-          <p style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:#a855f7; margin-bottom:0.5rem;">Passion</p>
+          <p
+            style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:#a855f7; margin-bottom:0.5rem;">
+            Passion</p>
           <p style="font-size:0.95rem; color:#f0eaff;">Web & App Development, Tech Solutions</p>
         </div>
       </div>
@@ -711,23 +923,27 @@
   <section id="services">
     <p class="section-label">What I Do</p>
     <h2 class="section-title">Services</h2>
-    <p class="section-desc">Whether you need a full web app built from scratch or just need someone to set up your computer — I've got you covered.</p>
+    <p class="section-desc">Whether you need a full web app built from scratch or just need someone to set up your
+      computer — I've got you covered.</p>
 
     <div class="services-grid">
       <div class="service-card">
         <span class="service-icon">🌐</span>
         <h3 class="service-name">Web Development</h3>
-        <p class="service-desc">Custom websites and web apps built to your exact needs. Clean code, fast performance, and designs that make an impression.</p>
+        <p class="service-desc">Custom websites and web apps built to your exact needs. Clean code, fast performance,
+          and designs that make an impression.</p>
       </div>
       <div class="service-card">
         <span class="service-icon">📱</span>
         <h3 class="service-name">App Development</h3>
-        <p class="service-desc">Mobile and desktop applications designed to solve real problems. From concept to launch, I handle the full build.</p>
+        <p class="service-desc">Mobile and desktop applications designed to solve real problems. From concept to launch,
+          I handle the full build.</p>
       </div>
       <div class="service-card">
         <span class="service-icon">🔧</span>
         <h3 class="service-name">Tech Support & Setup</h3>
-        <p class="service-desc">Computer setup, data transfers, troubleshooting, and general tech help. No problem too big or too small.</p>
+        <p class="service-desc">Computer setup, data transfers, troubleshooting, and general tech help. No problem too
+          big or too small.</p>
       </div>
     </div>
   </section>
@@ -736,22 +952,33 @@
   <section id="portfolio">
     <p class="section-label">My Work</p>
     <h2 class="section-title">Projects</h2>
-    <p class="section-desc">Just getting started — exciting projects coming soon. Check back as the portfolio grows.</p>
+    <p class="section-desc">Real work, shipped. More projects added as they're completed.</p>
 
     <div class="portfolio-grid">
       <div class="project-card">
-        <div class="project-placeholder">🧙‍♂️</div>
+        <a href="/projects/TTS%20Document%20Manager/tts-document-manager.html" style="display:block; text-decoration:none; color:inherit;">
+          <div class="project-placeholder">
+            <img src="/projects/TTS%20Document%20Manager/mainmenu.png" alt="TTS Document Manager" style="width:100%;height:100%;object-fit:cover;" />
+          </div>
+        </a>
         <div class="project-info">
-          <p class="project-tag">Web App</p>
-          <h3 class="project-name">Project Coming Soon</h3>
-          <p class="project-desc">First client project in progress. Details to be revealed on launch.</p>
-          <span class="project-coming">In Progress</span>
+          <p class="project-tag">Desktop App</p>
+          <h3 class="project-name">TTS Document Manager</h3>
+          <p class="project-desc">High-performance Electron app for industrial shop floors. Instant search and full-fidelity rendering of thousands of legacy documents — Word, Excel, TIF, PDF — from offline network shares. No Office 365 required.</p>
+          <span class="project-badge">✦ No Cloud Dependencies</span>
+          <div class="project-tech-tags">
+            <span class="project-tech-tag">Electron</span>
+            <span class="project-tech-tag">Node.js</span>
+            <span class="project-tech-tag">LibreOffice</span>
+            <span class="project-tech-tag">JavaScript</span>
+          </div>
+          <a href="/projects/TTS%20Document%20Manager/tts-document-manager.html" class="project-link">View Project →</a>
         </div>
       </div>
       <div class="project-card">
         <div class="project-placeholder">⚡</div>
         <div class="project-info">
-          <p class="project-tag">Portfolio</p>
+          <p class="project-tag">Coming Soon</p>
           <h3 class="project-name">More Projects Soon</h3>
           <p class="project-desc">Building something great takes time. New work will be added here regularly.</p>
           <span class="project-coming">Coming Soon</span>
@@ -763,7 +990,7 @@
   <!-- CONTACT -->
   <section id="contact">
     <p class="section-label">Get In Touch</p>
-    <h2 class="section-title">Let's Build<br/>Something.</h2>
+    <h2 class="section-title">Let's Build<br />Something.</h2>
 
     <div class="contact-wrapper">
       <div class="contact-info">
@@ -771,7 +998,8 @@
         <p>Tell me about your project and I'll get back to you within 24 hours. No project is too big or too small.</p>
         <div class="contact-detail">
           <span>✉</span>
-          <a href="/cdn-cgi/l/email-protection#b6d4c4d3d8c2f6c1ccc4d2d9cc98d2d3c0"><span class="__cf_email__" data-cfemail="204252454e5460575a52444f5a0e444556">[email&#160;protected]</span></a>
+          <a href="/cdn-cgi/l/email-protection#b6d4c4d3d8c2f6c1ccc4d2d9cc98d2d3c0"><span class="__cf_email__"
+              data-cfemail="204252454e5460575a52444f5a0e444556">[email&#160;protected]</span></a>
         </div>
         <div class="contact-detail">
           <span>🌐</span>
@@ -786,20 +1014,21 @@
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required/>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="your@email.com" required/>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
           </div>
         </div>
         <div class="form-group">
-          <label for="subject">What do you need?</label>
-          <input type="text" id="subject" name="subject" placeholder="Website, app, tech help..."/>
+          <label for="service">What do you need?</label>
+          <input type="text" id="service" name="service" placeholder="Website, app, tech help..." />
         </div>
         <div class="form-group">
           <label for="message">Tell me more</label>
-          <textarea id="message" name="message" placeholder="Describe your project or what you need help with..."></textarea>
+          <textarea id="message" name="message"
+            placeholder="Describe your project or what you need help with..."></textarea>
         </div>
         <div class="h-captcha" data-captcha="true"></div>
         <button type="submit" class="btn-submit">Send Message ✦</button>
@@ -813,14 +1042,15 @@
     <span class="footer-copy">© 2026 Wzrdoz · Web, App & Tech Solutions</span>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
     // Floating particles
     const container = document.getElementById('particles');
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 35; i++) {
       const p = document.createElement('div');
       p.className = 'particle';
       p.style.left = Math.random() * 100 + '%';
-      p.style.width = p.style.height = (Math.random() * 2 + 1) + 'px';
+      p.style.width = p.style.height = (Math.random() * 3 + 2) + 'px';
       p.style.animationDuration = (Math.random() * 15 + 10) + 's';
       p.style.animationDelay = (Math.random() * 15) + 's';
       container.appendChild(p);
@@ -829,29 +1059,26 @@
     // Fade in sections on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.style.opacity = '1';
-          e.target.style.transform = 'translateY(0)';
-        }
+        if (e.isIntersecting) e.target.classList.add('visible');
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('section').forEach(s => {
-      s.style.opacity = '0';
-      s.style.transform = 'translateY(30px)';
-      s.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-      observer.observe(s);
-    });
+    document.querySelectorAll('section').forEach(s => observer.observe(s));
 
     function toggleMobile() {
-      document.getElementById('hamburger').classList.toggle('open');
+      const hamburger = document.getElementById('hamburger');
+      hamburger.classList.toggle('open');
       document.getElementById('mobileMenu').classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', hamburger.classList.contains('open'));
     }
 
     function closeMobile() {
-      document.getElementById('hamburger').classList.remove('open');
+      const hamburger = document.getElementById('hamburger');
+      hamburger.classList.remove('open');
       document.getElementById('mobileMenu').classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
     }
   </script>
 </body>
+
 </html>
