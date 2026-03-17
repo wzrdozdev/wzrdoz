@@ -824,14 +824,8 @@
 
     /* SCROLL FADE */
     section {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
+      position: relative;
+      z-index: 0;
     }
 
     /* RESPONSIVE */
@@ -873,6 +867,28 @@
 
       #about>div:last-of-type {
         grid-template-columns: 1fr !important;
+      }
+
+      #hero {
+        padding: 5rem 1.5rem 3rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -1162,11 +1178,19 @@
     // Fade in sections on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('section').forEach(s => observer.observe(s));
+    document.querySelectorAll('section').forEach(s => {
+      s.style.opacity = '0';
+      s.style.transform = 'translateY(30px)';
+      s.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      observer.observe(s);
+    });
 
     function toggleMobile() {
       const hamburger = document.getElementById('hamburger');
