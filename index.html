@@ -377,8 +377,8 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--grey);
-      border: 1px solid rgba(168,85,247,0.2);
-      background: rgba(168,85,247,0.05);
+      border: 1px solid rgba(168, 85, 247, 0.2);
+      background: rgba(168, 85, 247, 0.05);
       padding: 0.4rem 0.9rem;
       border-radius: 2px;
       transition: all 0.3s;
@@ -405,7 +405,9 @@
       transition: color 0.3s;
     }
 
-    .footer-nav a:hover { color: var(--purple); }
+    .footer-nav a:hover {
+      color: var(--purple);
+    }
 
     .footer-social {
       display: flex;
@@ -419,7 +421,9 @@
       display: flex;
     }
 
-    .footer-social a:hover { color: var(--purple); }
+    .footer-social a:hover {
+      color: var(--purple);
+    }
 
     /* SERVICES */
     #services {
@@ -570,8 +574,8 @@
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: #34d399;
-      border: 1px solid rgba(52,211,153,0.35);
-      background: rgba(52,211,153,0.06);
+      border: 1px solid rgba(52, 211, 153, 0.35);
+      background: rgba(52, 211, 153, 0.06);
       padding: 0.3rem 0.8rem;
       border-radius: 2px;
     }
@@ -593,15 +597,18 @@
       text-decoration: none;
       transition: color 0.3s, gap 0.3s;
     }
-    .project-link:hover { color: var(--white); }
+
+    .project-link:hover {
+      color: var(--white);
+    }
 
     .project-tech-tag {
       font-size: 0.6rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--grey);
-      border: 1px solid rgba(168,85,247,0.12);
-      background: rgba(168,85,247,0.05);
+      border: 1px solid rgba(168, 85, 247, 0.12);
+      background: rgba(168, 85, 247, 0.05);
       padding: 0.25rem 0.6rem;
       border-radius: 2px;
     }
@@ -862,8 +869,14 @@
         padding: 2rem 1.5rem;
       }
 
-      .footer-nav { gap: 1.2rem; }
-      .footer-social { flex-direction: column; gap: 0.8rem; }
+      .footer-nav {
+        gap: 1.2rem;
+      }
+
+      .footer-social {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
 
       #about>div:last-of-type {
         grid-template-columns: 1fr !important;
@@ -878,7 +891,8 @@
         align-items: center;
       }
 
-      .btn-primary, .btn-secondary {
+      .btn-primary,
+      .btn-secondary {
         width: 100%;
         text-align: center;
       }
@@ -1023,7 +1037,12 @@
     <div class="services-grid">
       <div class="service-card">
         <span class="service-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="2" y1="12" x2="22" y2="12" />
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+          </svg>
         </span>
         <h3 class="service-name">Web Development</h3>
         <p class="service-desc">Custom websites and web apps built to your exact needs. Clean code, fast performance,
@@ -1031,7 +1050,11 @@
       </div>
       <div class="service-card">
         <span class="service-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2"/></svg>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5" y="2" width="14" height="20" rx="2" />
+            <line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2" />
+          </svg>
         </span>
         <h3 class="service-name">App Development</h3>
         <p class="service-desc">Mobile and desktop applications designed to solve real problems. From concept to launch,
@@ -1039,7 +1062,11 @@
       </div>
       <div class="service-card">
         <span class="service-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+          </svg>
         </span>
         <h3 class="service-name">Tech Support & Setup</h3>
         <p class="service-desc">Computer setup, data transfers, troubleshooting, and general tech help. No problem too
@@ -1056,15 +1083,19 @@
 
     <div class="portfolio-grid">
       <div class="project-card">
-        <a href="/projects/TTS%20Document%20Manager/tts-document-manager.html" style="display:block; text-decoration:none; color:inherit;">
+        <a href="/projects/TTS%20Document%20Manager/tts-document-manager.html"
+          style="display:block; text-decoration:none; color:inherit;">
           <div class="project-placeholder">
-            <img src="/projects/TTS%20Document%20Manager/mainmenu.png" alt="TTS Document Manager" style="width:100%;height:100%;object-fit:cover;" />
+            <img src="/projects/TTS%20Document%20Manager/mainmenu.png" alt="TTS Document Manager"
+              style="width:100%;height:100%;object-fit:cover;" />
           </div>
         </a>
         <div class="project-info">
           <p class="project-tag">Desktop App</p>
           <h3 class="project-name">TTS Document Manager</h3>
-          <p class="project-desc">High-performance Electron app for industrial shop floors. Instant search and full-fidelity rendering of thousands of legacy documents — Word, Excel, TIF, PDF — from offline network shares. No Office 365 required.</p>
+          <p class="project-desc">High-performance Electron app for industrial shop floors. Instant search and
+            full-fidelity rendering of thousands of legacy documents — Word, Excel, TIF, PDF, and TXT Files. No Office
+            365 or external software subscriptions required.</p>
           <span class="project-badge">✦ No Cloud Dependencies</span>
           <div class="project-tech-tags">
             <span class="project-tech-tag">Electron</span>
@@ -1077,13 +1108,19 @@
       </div>
       <div class="project-card">
         <div class="project-placeholder" style="background: linear-gradient(135deg, #0a0a1a, #12102a);">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(168,85,247,0.3)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(168,85,247,0.3)" stroke-width="1"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
         </div>
         <div class="project-info">
           <p class="project-tag">In Progress</p>
           <h3 class="project-name">Currently Building</h3>
-          <p class="project-desc">A new web project is in active development. Details coming soon — check back or get in touch if you're curious what's next.</p>
-          <span class="project-coming" style="border-color:rgba(168,85,247,0.3); color:rgba(168,85,247,0.5);">In Development ✦</span>
+          <p class="project-desc">A new web project is in active development. Details coming soon — check back or get in
+            touch if you're curious what's next.</p>
+          <span class="project-coming" style="border-color:rgba(168,85,247,0.3); color:rgba(168,85,247,0.5);">In
+            Development ✦</span>
         </div>
       </div>
     </div>
@@ -1106,15 +1143,25 @@
 
         <div class="contact-detail">
           <span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg>
           </span>
           <a href="https://github.com/wzrdozdev" target="_blank" rel="noopener">github.com/wzrdozdev</a>
         </div>
         <div class="contact-detail">
           <span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
           </span>
-          <a href="https://www.linkedin.com/in/brent-osbun-102672342" target="_blank" rel="noopener">linkedin.com/in/brent-osbun</a>
+          <a href="https://www.linkedin.com/in/brent-osbun-102672342" target="_blank"
+            rel="noopener">linkedin.com/in/brent-osbun</a>
         </div>
       </div>
 
@@ -1152,10 +1199,19 @@
     <span class="footer-logo">WZRD<span>OZ</span></span>
     <div class="footer-social">
       <a href="https://github.com/wzrdozdev" target="_blank" rel="noopener" aria-label="GitHub">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
       </a>
       <a href="https://www.linkedin.com/in/brent-osbun-102672342" target="_blank" rel="noopener" aria-label="LinkedIn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
       </a>
       <span class="footer-copy">© 2026 Wzrdoz · Web, App & Tech Solutions</span>
     </div>
