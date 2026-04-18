@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TTS Document Manager — WZRDOZ</title>
   <meta name="description"
-    content="Case study: A high-performance Electron desktop app for industrial shop floors. Instant search and full-fidelity document rendering with no cloud dependencies.">
+    content="Case study: A high-performance Tauri 2 + Rust desktop app for industrial shop floors. Custom TIFF renderer and zero cloud dependencies.">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
   <link rel="shortcut icon" href="/favicon/favicon.ico">
@@ -619,8 +619,7 @@
   <div class="project-hero">
     <p class="project-eyebrow">Desktop App</p>
     <h1 class="project-title">TTS Document Manager</h1>
-    <p class="project-tagline">High-performance document access for industrial shop floors — no internet, no Office 365,
-      no compromises.</p>
+    <p class="project-tagline">Shop floor document management built to replace a legacy system — Tauri 2 with a custom TIFF renderer and zero cloud dependencies.</p>
     <span class="badge">✦ No Cloud Dependencies</span>
   </div>
 
@@ -635,7 +634,7 @@
       </div>
       <div class="stat">
         <p class="stat-label">Platform</p>
-        <p class="stat-value">Windows (Electron)</p>
+        <p class="stat-value">Windows (Tauri 2)</p>
       </div>
       <div class="stat">
         <p class="stat-label">Environment</p>
@@ -647,25 +646,40 @@
       </div>
     </div>
 
-    <!-- CHALLENGE / SOLUTION -->
-    <p class="section-label">The Problem</p>
-    <h2 class="section-title">Legacy Documents,<br />Modern Demands</h2>
-    <p class="prose">Shop floor workers needed reliable access to thousands of documents — Word,
-      Excel, multi-page TIFs, and PDFs — stored on internal network shares. The existing setup required
-      Office 365 licenses and external viewers that have monthly/yearly subscriptions costs.</p>
-    <p class="prose">The ask was simple: make it fast, make it work anywhere on the network, and don't have any
-      monthly/yearly subscriptions costs.</p>
+    <!-- OVERVIEW -->
+    <p class="prose">A desktop application built for manufacturing shop floors. Workers can instantly search, open, and print thousands of documents — Word, Excel, TIFF, and PDF — stored on internal network shares, with no Office 365 or external viewer subscriptions required.</p>
 
     <div class="two-col">
       <div class="col-card">
         <p class="col-card-label">The Challenge</p>
-        <p>Thousands of mixed-format documents on network shares. Workers needed instant search and full-fidelity
-          rendering with zero dependency on Microsoft Office, cloud services, or external software installations.</p>
+        <p>Shop floor workers needed access to thousands of mixed-format documents on network shares — with no Office 365 licenses or external viewer subscriptions.</p>
       </div>
       <div class="col-card">
         <p class="col-card-label">The Solution</p>
-        <p>A self-contained Electron desktop app with a bundled headless LibreOffice engine for document rendering,
-          UTIF.js for high-fidelity TIF display, and a clean asset pipeline. Zero external dependencies at runtime.</p>
+        <p>A self-contained Tauri 2 desktop app. Rust backend for file I/O, audit logging, and LibreOffice process management. Next.js + TypeScript frontend.</p>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- HIGHLIGHTS -->
+    <p class="section-label">What It Does</p>
+    <div class="tech-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:4rem;">
+      <div class="tech-item">
+        <p class="tech-name">Universal Viewer</p>
+        <p class="tech-role">Opens Word, Excel, PDF, TIFF, and text files — no Office 365 or external plugins required.</p>
+      </div>
+      <div class="tech-item">
+        <p class="tech-name">Instant Search</p>
+        <p class="tech-role">Searches across thousands of documents on network drives in milliseconds, linking part numbers to operations automatically.</p>
+      </div>
+      <div class="tech-item">
+        <p class="tech-name">Print Workflow</p>
+        <p class="tech-role">Batch prints work instructions and drawings directly from the app. Silent printing via LibreOffice — no Office install needed.</p>
+      </div>
+      <div class="tech-item">
+        <p class="tech-name">Engineering Drawings</p>
+        <p class="tech-role">Custom TIFF renderer built for shop floor schematics. Keeps thin lines sharp at any zoom level without a third-party viewer.</p>
       </div>
     </div>
 
@@ -674,87 +688,48 @@
     <!-- SCREENSHOTS -->
     <p class="section-label">Screenshots</p>
     <h2 class="section-title">The Interface</h2>
-    <p class="prose" style="margin-bottom:2rem;">A modern glassmorphism design built for clarity on shop floor displays.
-      Fast search up front, clean document viewer alongside.</p>
+    <p class="prose" style="margin-bottom:2rem;">Built for clarity on shop floor displays — fast search up front, clean document viewer alongside.</p>
 
     <div class="screenshots">
       <div class="screenshot-slot" id="shot1" onclick="openLightbox('shot1')">
-        <img src="mainmenu.png" alt="Main Menu" style="width:100%;height:100%;object-fit:cover;border-radius:4px;" />
+        <img src="WI.png" alt="Work Instruction" style="width:100%;height:100%;object-fit:cover;border-radius:4px;" />
         <div class="shot-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
       </div>
       <div class="screenshot-slot" id="shot2" onclick="openLightbox('shot2')">
-        <img src="tifviewer.png" alt="TIF Viewer" style="width:100%;height:100%;object-fit:cover;border-radius:4px;" />
+        <img src="tiff.png" alt="TIFF Viewer" style="width:100%;height:100%;object-fit:cover;border-radius:4px;" />
         <div class="shot-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
       </div>
       <div class="screenshot-slot" id="shot3" onclick="openLightbox('shot3')">
-        <img src="documentviewer.png" alt="Document Viewer" style="width:100%;height:100%;object-fit:cover;border-radius:4px;" />
+        <img src="Multi Part Selection.png" alt="Multi Part Selection" style="width:100%;height:100%;object-fit:cover;border-radius:4px;" />
         <div class="shot-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
       </div>
     </div>
     <div style="margin-bottom:4rem;"></div>
 
-    <hr class="divider" />
-
-    <!-- KEY FEATURES -->
-    <p class="section-label">What It Does</p>
-    <h2 class="section-title">Key Features</h2>
-    <p class="prose" style="margin-bottom:2rem;">Built around the real constraints of a shop floor — speed, reliability, and zero tolerance for downtime.</p>
-
-    <div class="tech-grid" style="grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-bottom:4rem;">
-      <div class="tech-item">
-        <p class="tech-name">Universal Viewer</p>
-        <p class="tech-role">Natively renders Word, Excel, PDF, TIF, and Text files — no Microsoft Office or external plugins required.</p>
-      </div>
-      <div class="tech-item">
-        <p class="tech-name">HiDPI Drawing Engine</p>
-        <p class="tech-role">Custom canvas pipeline uses devicePixelRatio to keep engineering tolerances razor-sharp on 4K shop floor monitors.</p>
-      </div>
-      <div class="tech-item">
-        <p class="tech-name">Intelligent Search</p>
-        <p class="tech-role">Recursive matcher traverses complex network structures and dynamically links part numbers to operations across thousands of files in milliseconds.</p>
-      </div>
-      <div class="tech-item">
-        <p class="tech-name">Production Shortcuts</p>
-        <p class="tech-role">F5 batch-prints the Work Instruction and Sketch in one tap. Arrow keys flip through multi-sheet drawings. Full keyboard shortcut guide on F1.</p>
-      </div>
-      <div class="tech-item">
-        <p class="tech-name">Theater Mode</p>
-        <p class="tech-role">One-touch toggle hides all UI controls and allocates 100% of screen height to the drawing viewer — built for high-glare industrial screens.</p>
-      </div>
-      <div class="tech-item">
-        <p class="tech-name">Network Reliability</p>
-        <p class="tech-role">Copies documents to local temp before rendering, preventing network file-locking and protecting shared drive data integrity across the shop floor.</p>
-      </div>
-    </div>
-
-    <hr class="divider" />
-
     <!-- TECH STACK -->
     <p class="section-label">How It's Built</p>
     <h2 class="section-title">Tech Stack</h2>
-    <p class="prose" style="margin-bottom:2rem;">Every technology was chosen deliberately to solve a specific constraint
-      of the shop floor environment.</p>
 
-    <div class="tech-grid">
+    <div class="tech-grid" style="grid-template-columns: repeat(3, 1fr);">
       <div class="tech-item">
-        <p class="tech-name">Electron + Node.js</p>
-        <p class="tech-role">Cross-platform desktop shell. Gives full filesystem access to network shares without a
-          browser security sandbox getting in the way.</p>
+        <p class="tech-name">Tauri 2</p>
+        <p class="tech-role">OS-native WebView2 desktop shell. Significantly lighter than a Chromium-bundled alternative.</p>
       </div>
       <div class="tech-item">
-        <p class="tech-name">LibreOffice (Headless)</p>
-        <p class="tech-role">Bundled portable LibreOffice renders Word and Excel files to pixel-perfect images with zero
-          Office 365 dependency. The "Invisible Engine."</p>
+        <p class="tech-name">Rust</p>
+        <p class="tech-role">Native backend — file I/O, network drives, audit logging, LibreOffice process management.</p>
       </div>
       <div class="tech-item">
-        <p class="tech-name">UTIF.js</p>
-        <p class="tech-role">TIFF rendering in the browser layer. Handles multi-page industrial TIF files natively
-          without external viewers.</p>
+        <p class="tech-name">Next.js + TypeScript</p>
+        <p class="tech-role">Static export frontend rendered inside the Tauri WebView.</p>
       </div>
       <div class="tech-item">
-        <p class="tech-name">Vanilla JS + CSS3</p>
-        <p class="tech-role">No frameworks means no bloat. The glassmorphism UI loads instantly and runs lean on older
-          shop floor hardware.</p>
+        <p class="tech-name">Tailwind CSS</p>
+        <p class="tech-role">Utility-first styling, minimal runtime footprint.</p>
+      </div>
+      <div class="tech-item">
+        <p class="tech-name">LibreOffice Headless</p>
+        <p class="tech-role">Document conversion and silent printing. No Office 365 required.</p>
       </div>
     </div>
 
