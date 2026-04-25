@@ -6,16 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WZRDOZ — Web · App · Tech Solutions</title>
   <meta name="description"
-    content="WZRDOZ — Custom web apps, mobile apps, and tech solutions by Brent Osbun. Based in Ohio. Making tech feel like magic.">
+    content="WZRDOZ — Custom web apps, desktop apps, and tech solutions by Brent Osbun. Based in Ohio. Making tech feel like magic.">
   <meta property="og:title" content="WZRDOZ — Web · App · Tech Solutions">
   <meta property="og:description"
-    content="Custom web apps, mobile apps, and tech solutions. Making tech feel like magic.">
+    content="Custom web apps, desktop apps, and tech solutions. Making tech feel like magic.">
+  <meta property="og:image" content="https://wzrdoz.dev/og-image.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://wzrdoz.dev">
+  <link rel="canonical" href="https://wzrdoz.dev/" />
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="WZRDOZ — Web · App · Tech Solutions">
   <meta name="twitter:description"
-    content="Custom web apps, mobile apps, and tech solutions. Making tech feel like magic.">
+    content="Custom web apps, desktop apps, and tech solutions. Making tech feel like magic.">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
   <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
@@ -25,6 +27,12 @@
     href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap"
     rel="stylesheet" />
   <script src="https://web3forms.com/client/script.js" async defer></script>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
   <style>
     :root {
       --bg: #08080f;
@@ -36,6 +44,36 @@
       --grey: #6b5f8a;
       --card: #10101e;
       --border: rgba(168, 85, 247, 0.15);
+      --nav-bg: rgba(8, 8, 15, 0.95);
+      --menu-bg: rgba(8, 8, 15, 0.98);
+      --btn-text: #f0eaff;
+      --text-muted: rgba(240, 234, 255, 0.6);
+      --text-body: rgba(240, 234, 255, 0.75);
+      --footer-icon: rgba(240, 234, 255, 0.5);
+      --card-hover: #13132a;
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f8fafc;
+      --bg2: #ffffff;
+      --purple: #9333ea;
+      --purple-dark: #7e22ce;
+      --purple-dim: #d8b4fe;
+      --white: #0f172a;
+      --grey: #475569;
+      --card: #ffffff;
+      --border: rgba(147, 51, 234, 0.2);
+      --nav-bg: rgba(248, 250, 252, 0.95);
+      --menu-bg: rgba(248, 250, 252, 0.98);
+      --btn-text: #ffffff;
+      --text-muted: rgba(15, 23, 42, 0.6);
+      --text-body: rgba(15, 23, 42, 0.75);
+      --footer-icon: rgba(15, 23, 42, 0.5);
+      --card-hover: #f1f5f9;
+    }
+
+    :root[data-theme="light"] body::before {
+      opacity: 0.15;
     }
 
     * {
@@ -78,8 +116,34 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(to bottom, rgba(8, 8, 15, 0.95), transparent);
+      background: linear-gradient(to bottom, var(--nav-bg), transparent);
       backdrop-filter: blur(8px);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      color: var(--grey);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.3s;
+      padding: 0.5rem;
+    }
+
+    .theme-toggle:hover {
+      color: var(--purple);
+    }
+
+    .theme-toggle svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
     }
 
     .nav-logo {
@@ -226,7 +290,7 @@
 
     .hero-tagline {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: rgba(240, 234, 255, 0.6);
+      color: var(--text-muted);
       max-width: 480px;
       line-height: 1.8;
       margin-bottom: 3rem;
@@ -245,8 +309,9 @@
 
     .btn-primary {
       padding: 0.85rem 2.2rem;
-      background: linear-gradient(135deg, var(--purple-dark), var(--purple));
-      color: var(--white);
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple), #c084fc, var(--purple-dark));
+      background-size: 300% 300%;
+      color: var(--btn-text);
       text-decoration: none;
       font-size: 0.8rem;
       letter-spacing: 0.2em;
@@ -254,6 +319,7 @@
       border-radius: 2px;
       transition: all 0.3s;
       box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+      animation: gradientMove 5s ease infinite;
     }
 
     .btn-primary:hover {
@@ -398,7 +464,7 @@
     }
 
     .footer-social a {
-      color: rgba(240, 234, 255, 0.5);
+      color: var(--footer-icon);
       transition: color 0.3s;
       display: flex;
     }
@@ -447,7 +513,7 @@
     }
 
     .service-card:hover {
-      background: #13132a;
+      background: var(--card-hover);
     }
 
     .service-icon {
@@ -498,7 +564,7 @@
 
     .project-placeholder {
       height: 180px;
-      background: linear-gradient(135deg, #0e0e1a, #1a1a3a);
+      background: linear-gradient(135deg, var(--bg2), var(--card));
       display: flex;
       align-items: center;
       justify-content: center;
@@ -548,6 +614,22 @@
       border: 1px solid var(--purple-dim);
       padding: 0.3rem 0.8rem;
       border-radius: 2px;
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; filter: drop-shadow(0 0 5px rgba(168,85,247,0.1)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 15px rgba(168,85,247,0.6)); }
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .pulsing {
+      animation: pulseGlow 3s infinite ease-in-out;
     }
 
     .project-badge {
@@ -697,21 +779,24 @@
 
     .btn-submit {
       padding: 1rem 2rem;
-      background: linear-gradient(135deg, var(--purple-dark), var(--purple));
-      color: var(--white);
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple), #c084fc, var(--purple-dark));
+      background-size: 300% 300%;
+      color: var(--btn-text);
       border: none;
       font-family: 'Raleway', sans-serif;
       font-size: 0.8rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      cursor: pointer;
       border-radius: 2px;
+      cursor: pointer;
       transition: all 0.3s;
-      box-shadow: 0 0 30px rgba(168, 85, 247, 0.15);
+      margin-top: 1rem;
+      box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+      animation: gradientMove 5s ease infinite;
     }
 
     .btn-submit:hover {
-      box-shadow: 0 0 40px rgba(168, 85, 247, 0.35);
+      box-shadow: 0 0 40px rgba(168, 85, 247, 0.4);
       transform: translateY(-2px);
     }
 
@@ -742,7 +827,7 @@
 
     .footer-copy {
       font-size: 0.75rem;
-      color: rgba(240, 234, 255, 0.4);
+      color: var(--footer-icon);
       letter-spacing: 0.1em;
     }
 
@@ -786,7 +871,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(8, 8, 15, 0.98);
+      background: var(--menu-bg);
       z-index: 150;
       flex-direction: column;
       align-items: center;
@@ -907,9 +992,14 @@
       <li><a href="#portfolio">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+        <svg id="theme-icon" viewBox="0 0 24 24"></svg>
+      </button>
+      <button class="hamburger" id="hamburger" onclick="toggleMobile()" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -955,16 +1045,16 @@
     <h2 class="section-title">About Me</h2>
     <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
       <div>
-        <p style="font-size:1rem; line-height:1.9; color:rgba(240,234,255,0.75); margin-bottom:1.2rem;">
-          Hey, I'm <strong style="color:#f0eaff;">Brent Osbun</strong> — a full-time Systems Administrator based in Ohio
+        <p style="font-size:1rem; line-height:1.9; color:var(--text-body); margin-bottom:1.2rem;">
+          Hey, I'm <strong style="color:var(--white);">Brent Osbun</strong> — a full-time Systems Administrator based in Ohio
           with a serious passion for all things tech.
         </p>
-        <p style="font-size:1rem; line-height:1.9; color:rgba(240,234,255,0.75); margin-bottom:1.2rem;">
+        <p style="font-size:1rem; line-height:1.9; color:var(--text-body); margin-bottom:1.2rem;">
           By day I keep systems running, but in my downtime you'll find me building web apps, tinkering with new
           technologies, and exploring whatever coding rabbit hole I've fallen into that week. Over the last year I've
           been diving deep into development and turning that passion into real projects.
         </p>
-        <p style="font-size:1rem; line-height:1.9; color:rgba(240,234,255,0.75);">
+        <p style="font-size:1rem; line-height:1.9; color:var(--text-body);">
           WZRDOZ was born from that love of creating — a place where I can help others bring their ideas to life through
           clean, modern web and app development, and hands-on tech solutions.
         </p>
@@ -972,7 +1062,7 @@
           <span class="skill-tag">Next.js · TypeScript</span>
           <span class="skill-tag">Tailwind · Modern CSS</span>
           <span class="skill-tag">Tauri · Rust</span>
-          <span class="skill-tag">Mobile Apps · Capacitor</span>
+          <span class="skill-tag">Internal Tools · Dashboards</span>
           <span class="skill-tag">SQL Databases · Supabase</span>
           <span class="skill-tag">Git · CI/CD</span>
           <span class="skill-tag">API Integration</span>
@@ -982,23 +1072,23 @@
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:1rem;">
-        <div style="background:#10101e; border:1px solid rgba(168,85,247,0.15); padding:1.5rem; border-radius:4px;">
+        <div style="background:var(--card); border:1px solid var(--border); padding:1.5rem; border-radius:4px;">
           <p
-            style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:#a855f7; margin-bottom:0.5rem;">
+            style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--purple); margin-bottom:0.5rem;">
             Role</p>
-          <p style="font-size:0.95rem; color:#f0eaff;">Systems Administrator & Developer</p>
+          <p style="font-size:0.95rem; color:var(--white);">Systems Administrator & Developer</p>
         </div>
-        <div style="background:#10101e; border:1px solid rgba(168,85,247,0.15); padding:1.5rem; border-radius:4px;">
+        <div style="background:var(--card); border:1px solid var(--border); padding:1.5rem; border-radius:4px;">
           <p
-            style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:#a855f7; margin-bottom:0.5rem;">
+            style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--purple); margin-bottom:0.5rem;">
             Location</p>
-          <p style="font-size:0.95rem; color:#f0eaff;">Ohio, USA</p>
+          <p style="font-size:0.95rem; color:var(--white);">Ohio, USA</p>
         </div>
-        <div style="background:#10101e; border:1px solid rgba(168,85,247,0.15); padding:1.5rem; border-radius:4px;">
+        <div style="background:var(--card); border:1px solid var(--border); padding:1.5rem; border-radius:4px;">
           <p
-            style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:#a855f7; margin-bottom:0.5rem;">
+            style="font-size:0.65rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--purple); margin-bottom:0.5rem;">
             Passion</p>
-          <p style="font-size:0.95rem; color:#f0eaff;">Web & App Development, Tech Solutions</p>
+          <p style="font-size:0.95rem; color:var(--white);">Web & App Development, Tech Solutions</p>
         </div>
       </div>
     </div>
@@ -1027,12 +1117,13 @@
         <span class="service-icon">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round">
-            <rect x="5" y="2" width="14" height="20" rx="2" />
-            <line x1="12" y1="18" x2="12.01" y2="18" stroke-width="2" />
+            <rect x="2" y="3" width="20" height="14" rx="2" />
+            <line x1="8" y1="21" x2="16" y2="21" />
+            <line x1="12" y1="17" x2="12" y2="21" />
           </svg>
         </span>
-        <h3 class="service-name">App Development</h3>
-        <p class="service-desc">Cross-platform mobile and lightweight desktop applications designed to solve real problems. From concept to launch, I handle the full end-to-end build.</p>
+        <h3 class="service-name">Desktop & Custom Apps</h3>
+        <p class="service-desc">High-performance desktop apps and custom web tools that eliminate bottlenecks. Built to run lightning fast without relying on expensive cloud subscriptions.</p>
       </div>
       <div class="service-card">
         <span class="service-icon">
@@ -1056,10 +1147,10 @@
 
     <div class="portfolio-grid">
       <div class="project-card">
-        <a href="/projects/TTS%20Document%20Manager/"
+        <a href="/projects/tts-document-manager/"
           style="display:block; text-decoration:none; color:inherit;">
           <div class="project-placeholder">
-            <img src="/projects/TTS%20Document%20Manager/WI.png" alt="TTS Document Manager"
+            <img src="/projects/tts-document-manager/WI.png" alt="TTS Document Manager"
               style="width:100%;height:100%;object-fit:cover;" />
           </div>
         </a>
@@ -1075,12 +1166,12 @@
             <span class="project-tech-tag">TypeScript</span>
             <span class="project-tech-tag">LibreOffice</span>
           </div>
-          <a href="/projects/TTS%20Document%20Manager/" class="project-link">View Project →</a>
+          <a href="/projects/tts-document-manager/" class="project-link">View Project →</a>
         </div>
       </div>
       <div class="project-card">
-        <div class="project-placeholder" style="background: linear-gradient(135deg, #0a0a1a, #12102a);">
-          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(168,85,247,0.3)" stroke-width="1"
+        <div class="project-placeholder">
+          <svg class="pulsing" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(168,85,247,0.6)" stroke-width="1.5"
             stroke-linecap="round" stroke-linejoin="round">
             <polyline points="16 18 22 12 16 6" />
             <polyline points="8 6 2 12 8 18" />
@@ -1107,40 +1198,18 @@
       <div class="contact-info">
         <h3>Ready to start?</h3>
         <p>Tell me about your project and I'll get back to you within 24 hours. No project is too big or too small.</p>
-        <div class="contact-detail">
-          <span>✉</span>
-          <a href="/cdn-cgi/l/email-protection#b6d4c4d3d8c2f6c1ccc4d2d9cc98d2d3c0"><span class="__cf_email__"
-              data-cfemail="204252454e5460575a52444f5a0e444556">[email&#160;protected]</span></a>
-        </div>
 
-        <div class="contact-detail">
-          <span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-            </svg>
-          </span>
-          <a href="https://github.com/wzrdozdev" target="_blank" rel="noopener">github.com/wzrdozdev</a>
-        </div>
-        <div class="contact-detail">
-          <span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-              <rect x="2" y="9" width="4" height="12" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-          </span>
-          <a href="https://www.linkedin.com/in/brent-osbun-102672342" target="_blank"
-            rel="noopener">linkedin.com/in/brent-osbun</a>
-        </div>
+
       </div>
 
       <form action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="7a0c0b50-2902-4dbc-a9ff-ea48d9c9a4cb">
         <input type="hidden" name="subject" value="New Contact from WZRDOZ.dev">
-        <input type="hidden" name="redirect" value="https://wzrdoz.dev/thankyou.html">
+        <input type="hidden" name="redirect" id="form-redirect" value="https://wzrdoz.dev/thankyou.html">
+        <script>
+          // Dynamically set redirect to the current domain for local testing
+          document.getElementById('form-redirect').value = window.location.origin + '/thankyou.html';
+        </script>
         <div class="form-row">
           <div class="form-group">
             <label for="name">Name</label>
@@ -1185,12 +1254,34 @@
           <circle cx="4" cy="4" r="2" />
         </svg>
       </a>
-      <span class="footer-copy">© 2026 WZRDOZ · Web · App · Tech Solutions</span>
+      <span class="footer-copy">© 2026 WZRDOZ, LLC | Web · App · Tech Solutions</span>
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeIcon(next);
+    }
+    
+    function updateThemeIcon(theme) {
+      const icon = document.getElementById('theme-icon');
+      if (!icon) return;
+      if (theme === 'light') {
+        icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+      } else {
+        icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+      }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      updateThemeIcon(savedTheme);
+    });
+
     // Floating particles
     const container = document.getElementById('particles');
     for (let i = 0; i < 35; i++) {

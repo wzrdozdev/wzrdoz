@@ -9,6 +9,12 @@
   <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg">
   <link rel="shortcut icon" href="/favicon/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script>
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
   <style>
     :root {
       --bg: #08080f;
@@ -17,6 +23,24 @@
       --white: #f0eaff;
       --grey: #6b5f8a;
       --border: rgba(168, 85, 247, 0.15);
+      --btn-text: #f0eaff;
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f8fafc;
+      --bg2: #ffffff;
+      --purple: #9333ea;
+      --purple-dark: #7e22ce;
+      --purple-dim: #d8b4fe;
+      --white: #0f172a;
+      --grey: #475569;
+      --card: #ffffff;
+      --border: rgba(147, 51, 234, 0.2);
+      --btn-text: #ffffff;
+    }
+
+    :root[data-theme="light"] body::before {
+      opacity: 0.15;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -76,6 +100,34 @@
     .nav-logo:hover { color: var(--purple); }
     .nav-logo:hover span { color: var(--white); }
 
+    .theme-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 2rem;
+      z-index: 100;
+      background: none;
+      border: none;
+      color: var(--grey);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.3s;
+      padding: 0.5rem;
+    }
+    .theme-toggle:hover {
+      color: var(--purple);
+    }
+    .theme-toggle svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
     .content {
       position: relative;
       z-index: 10;
@@ -116,10 +168,18 @@
       animation: fadeUp 0.8s ease forwards 0.4s;
     }
 
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     .btn {
       padding: 0.85rem 2.2rem;
-      background: linear-gradient(135deg, var(--purple-dark), var(--purple));
-      color: var(--white);
+      background: linear-gradient(135deg, var(--purple-dark), var(--purple), #c084fc, var(--purple-dark));
+      background-size: 300% 300%;
+      animation: gradientMove 5s ease infinite;
+      color: var(--btn-text);
       text-decoration: none;
       font-size: 0.8rem;
       letter-spacing: 0.2em;
@@ -145,6 +205,9 @@
 <body>
 
   <a href="/" class="nav-logo">WZRD<span>OZ</span></a>
+  <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+    <svg id="theme-icon" viewBox="0 0 24 24"></svg>
+  </button>
 
   <div class="content">
     <div class="error-code">404</div>
@@ -153,5 +216,29 @@
     <a href="/" class="btn">Return Home ✦</a>
   </div>
 
+  <script>
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateThemeIcon(next);
+    }
+    
+    function updateThemeIcon(theme) {
+      const icon = document.getElementById('theme-icon');
+      if (!icon) return;
+      if (theme === 'light') {
+        icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+      } else {
+        icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+      }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      updateThemeIcon(savedTheme);
+    });
+  </script>
 </body>
 </html>
